@@ -1,10 +1,23 @@
 import { Box, Flex, Text, Button, VStack, Input, Heading, Container } from '@chakra-ui/react';
 import { FaDatabase, FaRocket, FaEnvelope, FaPhone } from 'react-icons/fa';
 
+import { useEffect } from 'react';
+
 const Index = () => {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      body, button, input {
+        font-family: 'Courier New', Courier, monospace;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
   return (
     <Box>
-      <Flex as="nav" bg="brand.900" color="white" p={4} justifyContent="space-between" alignItems="center">
+      <Flex as="nav" bg="#3D2B1F" color="white" p={4} justifyContent="space-between" alignItems="center">
         <Heading size="lg">DBaaS Co.</Heading>
         <Flex gap="4">
           <Button variant="ghost">Features</Button>
@@ -15,9 +28,9 @@ const Index = () => {
       <Container maxW="container.xl" pt={10}>
         <VStack spacing={10}>
           <Box textAlign="center">
-            <Heading as="h1" size="2xl">Your Database, Our Priority</Heading>
-            <Text fontSize="xl" mt={4}>Manage your data with ease and efficiency.</Text>
-            <Button rightIcon={<FaRocket />} colorScheme="blue" mt={6} size="lg">
+            <Heading as="h1" size="3xl" fontStyle="italic">Your Database, Our Priority</Heading>
+            <Text fontSize="lg" mt={4} textDecoration="underline">Manage your data with ease and efficiency.</Text>
+            <Button rightIcon={<FaRocket />} colorScheme="orange" mt={6} size="lg">
               Get Started
             </Button>
           </Box>
@@ -26,16 +39,16 @@ const Index = () => {
             <Feature icon={<FaRocket />} title="Fast Performance" description="High-speed processing to handle complex queries without delay." />
             <Feature icon={<FaEnvelope />} title="24/7 Support" description="Dedicated support team to ensure your operations run smoothly." />
           </Flex>
-          <Box bg="gray.100" p={10} borderRadius="lg">
+          <Box bg="#FFF8DC" p={10} borderRadius="lg">
             <Heading as="h2" size="lg" textAlign="center">About Us</Heading>
             <Text mt={4}>We are leaders in data management, helping businesses harness the power of their data since 2005.</Text>
           </Box>
-          <Box as="form" bg="gray.200" p={10} borderRadius="lg" boxShadow="md">
+          <Box as="form" bg="#F4F4F4" p={10} borderRadius="lg" boxShadow="md">
             <VStack spacing={5}>
               <Input placeholder="Your Name" />
               <Input placeholder="Email Address" />
               <Input placeholder="Message" />
-              <Button leftIcon={<FaPhone />} colorScheme="teal" variant="solid">
+              <Button leftIcon={<FaPhone />} colorScheme="yellow" variant="solid">
                 Send Message
               </Button>
             </VStack>
