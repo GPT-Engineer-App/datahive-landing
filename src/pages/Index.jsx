@@ -1,14 +1,22 @@
-import { Box, Flex, Text, Button, VStack, Input, Heading, Container, Global, css } from '@chakra-ui/react';
+import { Box, Flex, Text, Button, VStack, Input, Heading, Container } from '@chakra-ui/react';
 import { FaDatabase, FaRocket, FaEnvelope, FaPhone } from 'react-icons/fa';
 
+import { useEffect } from 'react';
+
 const Index = () => {
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      body, button, input {
+        font-family: 'Courier New', Courier, monospace;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
   return (
     <Box>
-      <Global styles={css`
-        body, button, input {
-          font-family: 'Courier New', Courier, monospace;
-        }
-      `} />
       <Flex as="nav" bg="#3D2B1F" color="white" p={4} justifyContent="space-between" alignItems="center">
         <Heading size="lg">DBaaS Co.</Heading>
         <Flex gap="4">
